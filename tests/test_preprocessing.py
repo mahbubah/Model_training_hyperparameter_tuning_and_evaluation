@@ -26,11 +26,11 @@ def test_preprocess_data():
 
     # ---- Test 3: Smoker column is mapped correctly ----
     assert processed['smoker'].tolist() == [0, 1, 0, 1], "Smoker column was not mapped correctly."
-'''
+
     # ---- Test 4: BMI category created ----
     expected_categories = ['overweight', 'overweight', 'obese', 'normal']
     assert processed['bmi_category'].tolist() == expected_categories, "BMI categories are incorrect."
-'''
+
 '''
     # ---- Test 5: Numeric scaling (0-1) ----
     for col in ['bmi', 'age']:
