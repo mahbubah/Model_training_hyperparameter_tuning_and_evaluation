@@ -21,3 +21,7 @@ def test_preprocess_data():
 
     # ---- Test 3: Smoker column is mapped correctly ----
     assert processed['smoker'].tolist() == [0, 1, 0], "Smoker column was not mapped correctly."
+
+#Test 1 → ensures no missing BMI values remain
+#Test 2 → ensures the missing BMI is filled correctly using mean
+#Test 3 → ensures "yes/no" map to 1/0
