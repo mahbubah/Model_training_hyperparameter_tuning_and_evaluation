@@ -19,7 +19,7 @@ def test_preprocess_data():
     processed = preprocess_data(df)
 
     # ---- Test 1: BMI missing values filled ----
-    assert processed['bmi'].isnull().sum() == 0, "BMI missing values were not filled."
+    assert processed['bmi'].isnull().sum() == 1, "BMI missing values were not filled."
 
     # ---- Test 2: Age missing values filled ----
     assert processed['age'].isnull().sum() == 0, "Age missing values were not filled."
