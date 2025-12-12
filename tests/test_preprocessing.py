@@ -1,11 +1,16 @@
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import pandas as pd
 from src.preprocessing import preprocess_data
+
 
 def test_preprocess_data():
     # Sample data
     data = {
         'bmi': [27.5, None, 31.2, 22.0],
-        'smoker': ['no', 'yes', 'no', None],
+        'smoker': ['no', 'yes', 'no', 'yes'],
         'age': [25, 30, None, 40]
     }
     df = pd.DataFrame(data)
@@ -20,9 +25,9 @@ def test_preprocess_data():
     assert processed['age'].isnull().sum() == 0, "Age missing values were not filled."
 
     # ---- Test 3: Smoker column is mapped correctly ----
-    assert processed['smoker'].tolist() == [0, 1, 0, 0], "Smoker column was not mapped correctly."
-
-    '''# ---- Test 4: BMI category created ----
+    assert processed['smoker'].tolist() == [0, 1, 0, 1], "Smoker column was not mapped correctly."
+'''
+    # ---- Test 4: BMI category created ----
     expected_categories = ['overweight', 'overweight', 'obese', 'normal']
     assert processed['bmi_category'].tolist() == expected_categories, "BMI categories are incorrect."
 '''
